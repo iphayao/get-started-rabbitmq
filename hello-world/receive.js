@@ -5,7 +5,7 @@ amqp.connect('amqp://localhost', function(err, conn) {
         var q = 'hello';
 
         ch.assertQueue(q, {durable: false});
-        console.log("[*] waiting for message in %s, to exit press CTRL+C");
+        console.log("[*] waiting for message in %s, to exit press CTRL+C", q);
         ch.consume(q, function(msg) {
             console.log("[x] Received is %s", msg.content.toString());
         }, {noAck: true});
